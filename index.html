@@ -8,9 +8,9 @@
     <style>
         .open{
             position: absolute;
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
+            width: 40px;
+            height:40px;
+            border-radius: 20px;
             background-color: #fff;
         }
 
@@ -31,6 +31,17 @@
             Element.style.left = Event.clientX + "px";
             Element.style.top = Event.clientY + "px";
             body.appendChild(Element);
+            
+            setTimeout(() => {
+                body.removeChild(Element);
+                Element.style.backgroundColor = "Red"
+            }, 10000);
+
+            Element.addEventListener("mouseenter", spread);
+            function spread(){
+                Element.style.scale = "4";
+                Element.style.backgroundColor = "Red";
+            }
         });
      </script>
 </body>
